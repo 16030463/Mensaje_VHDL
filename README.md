@@ -1,0 +1,2 @@
+# Mensaje_VHDL
+Diseñar un dispositivo digital que muestre con un display de 7 segmentos un mensaje de 16 caracteres, distinto de una decodificación BCD o de un decodificar binario-hexadecimal. Dicho mensaje no debe incluir espacios, por ejemplo, si se desea escribir “Compuerta OR” se deberá mostrar en el display “CompuertaOR”. Mensaje que se decidió imprimir: "PASENOSCON100ALOS3", las ecuaciones fueron calculadas por el método de mapas K.
