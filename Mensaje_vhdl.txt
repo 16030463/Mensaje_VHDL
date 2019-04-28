@@ -1,0 +1,58 @@
+---------------MENSAJE PASENOSCON100ALOS3-------------------
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity Practica2 is
+    Port ( x3 : in  STD_LOGIC;
+           x2 : in  STD_LOGIC;
+           x1 : in  STD_LOGIC;
+           x0 : in  STD_LOGIC;
+	   d1 : out STD_LOGIC;
+	     a: out STD_LOGIC_VECTOR (3 downto 0);
+             s: out  STD_LOGIC_VECTOR (6 downto 0));
+end Practica2;
+
+architecture Behavioral of Practica2 is
+ constant a1: std_logic:='0';
+
+begin
+
+---Apagar los otros display <3 por que solo queremos que encienda uno.
+a <= "1111";
+
+	s(0) <= not ((not x3) or x0 or x1);
+	s(1) <= not (((not x3)and(not x0)) or (x3 and x0) or ((not x3)and(not x1)) or ((not x2)and(not x0)));
+	s(2) <= not (x0 or x1 or ((not x3)and x2) or (x3 and (not x2)));
+	s(3) <= not ((x2 and x1)or(x3 and x1 and (not x0)) or (x3 and x2) or ((not x3)and(not x2)and x0) or ((not x2)and(not x1)and(x0)));
+	s(4) <= not (((not x3)and(not x0)) or ((not x2)and x1)  or (x2 and (not x1)) or ((not x2)and x0));
+	s(5) <= not ((not x3) or ((not x2)and x0) or (x1 and (not x0)) or (x2 and (not x1)));
+	s(6) <= not (((not x3)and(not x1)and(not x0)) or (x1 and x0) or (x3 and x2 and x1));
+	d1 <= a1;
+ 
+end Behavioral;
+
+---------------UCF-------------------------
+NET "x3" LOC = "M6"; 
+NET "x2" LOC = "P4"; 
+NET "x1" LOC = "N5"; 
+NET "x0" LOC = "P5"; 
+
+NET "s(0)" LOC = "N9"; 
+NET "s(1)" LOC = "L10"; 
+NET "s(2)" LOC = "M7"; 
+NET "s(3)" LOC = "N6"; 
+NET "s(4)" LOC = "L7"; 
+NET "s(5)" LOC = "P8"; 
+NET "s(6)" LOC = "P7";
+NET "d1" LOC = "P11";
+NET "d2" LOC = "M10";
+
+#Apagar los otros display
+
+NET "a(0)" LOC = "N8";
+NET "a(1)" LOC = "M11";
+NET "a(2)" LOC = "P11";
+NET "a(3)" LOC = "M10";
+
